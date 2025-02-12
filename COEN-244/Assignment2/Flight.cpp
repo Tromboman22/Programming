@@ -4,8 +4,9 @@
 #include "Flight.h"
 #include "Date.h"
 #include "Time.h"
-
+#include <iostream>
 #include<string>
+using namespace std;
 
 Flight::Flight()
 {
