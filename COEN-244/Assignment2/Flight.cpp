@@ -45,7 +45,7 @@ int Flight:: getDuration()
 {
     return duration;
 };
-void Flight:: printinfo()
+void Flight:: Print()
 {
     cout << "ID: " << id << endl;
     //print the rest of the data members
