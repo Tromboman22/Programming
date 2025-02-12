@@ -17,7 +17,7 @@ class Flight
 
     public:
         Flight();
-        Flight(string id);
+        Flight(string x);
         Flight(const Flight &); //copy constructor
         string getID();
         string getDepCity();
