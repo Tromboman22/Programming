@@ -25,7 +25,7 @@ class Flight
         Date getDepDate();
         Date getArrDate();
         int getDuration();
-        void printinfo();
+        void Print();
         ~Flight();
 };
 
