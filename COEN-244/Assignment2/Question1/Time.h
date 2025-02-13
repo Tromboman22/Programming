@@ -4,6 +4,7 @@
 
 #pragma once
 #include <iostream>
+#include "Date.h"
 using namespace std; 
  
 //class Time
@@ -12,6 +13,7 @@ class Time {
     Time();
     void setTime( int, int ,int ); 
     void printTime() const;       
+    friend class Date;
 
  private:
     int hour, minute, second;
