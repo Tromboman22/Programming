@@ -13,12 +13,12 @@ class Passenger
 
     public:
         Passenger();                    //Default constructor
-        Passenger(string x);
+        Passenger(string ID, string FN, string LN, string AD, string EM);
         Passenger(const Passenger &);   //Copy constructor
         string getID();
         string getFirstName();
         string getLastName();
-        string geteAdress();
+        string getAddress();
         string getEmail();
         void Print();
         ~Passenger();                   //Destructor
