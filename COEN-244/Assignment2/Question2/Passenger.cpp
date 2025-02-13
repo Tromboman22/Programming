@@ -9,15 +9,23 @@ using namespace std;
 
 Passenger::Passenger()          //Default constructor
 {
- id = "";
+    id = "", firstName = " ", lastName = " ", address = " ", email = " ";
 };
-Passenger::Passenger(string x)
+Passenger::Passenger(string ID, string FN, string LN, string AD, string EM)
 {
-    id = x;
+    id = ID;
+    firstName = FN;
+    lastName = LN;
+    address = AD;
+    email = EM;
 };
-Passenger::Passenger(const Passenger &)
+Passenger::Passenger(const Passenger &p)
 {
-
+    id = p.id;
+    firstName = p.firstName;
+    lastName = p.lastName;
+    address = p.address;
+    email = p.email;
 };
 string Passenger::getID()
 {
@@ -31,7 +39,7 @@ string Passenger::getLastName()
 {
     return lastName;
 };
-string Passenger::geteAdress()
+string Passenger::getAddress()
 {
     return address;
 };
@@ -41,9 +49,13 @@ string Passenger::getEmail()
 };
 void Passenger::Print()
 {
-
+    cout << "Passenger Info: \n"
+        << "ID: " << id << endl
+        << "Name: " << firstName << " " << lastName
+        << "\nAddress: " << address
+        << "\nEmail: " << email << endl;
 };
 Passenger::~Passenger()         //Destructor
 {
-
+    //nothing to delete
 };
