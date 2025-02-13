@@ -1,5 +1,5 @@
-// Name: Samuel Pineau 
-// ID: 4031432
+// Name: Samuel Pineau, Ethan Fadlon 
+// ID: 4031432, 40314189
 
 #include "Time.h"
 #include <iostream>
@@ -20,6 +20,20 @@ void Time::setTime(int h, int m, int s) {
 }
 
 void Time::printTime() const {
-   cout << hour << ":" << minute << ":" << second << endl;          
+   if (hour < 10)
+   {
+      cout << "0";
+   }
+   cout << hour << ":";
+   if (minute < 10)
+   {
+      cout << "0";
+   }
+   cout << minute << ":";
+   if (second < 10)
+   {
+      cout << "0";
+   }
+   cout << second << endl;          
 }
 
