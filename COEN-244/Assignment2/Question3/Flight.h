@@ -1,23 +1,24 @@
-// Name: Samuel Pineau 
+// Name: Samuel Pineau, Ethan Fadlon
 // ID: 4031432
 
 #pragma once
 #include "Time.h"
 #include "Date.h"
+//#include "Passenger.h"
 
-class Time;         //define time for use in functions
+
 class Date;         //define date for use in functions
 
 class Flight
 {
     private:
         string id, departureCity, arrivalCity;
-        Date departureDate, arrivalDate;
+        Date* departureDate, *arrivalDate;
         int duration; //hours
 
     public:
         Flight();
-        Flight(string x);
+        Flight(string x, string dep, string arriv);
         Flight(const Flight &); //copy constructor
         string getID();
         string getDepCity();
@@ -26,7 +27,9 @@ class Flight
         Date getArrDate();
         int getDuration();
         void printinfo();
+        bool checkDate(int x, int y, int z);
         ~Flight();
+
 };
 
 
