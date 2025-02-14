@@ -6,7 +6,10 @@
 #include <iostream>
 using namespace std;
 
+#include "Flight.h"
 #include "Time.h"
+
+class Time;
 
 // class Date
 class Date {
@@ -14,8 +17,9 @@ class Date {
       Date();
       Date(int, int, int, int, int, int);   // sets day, month, year, hours, minutes, seconds
       void printDate() const;   	    // print date to the screen
+      friend class Flight;
 
    private:
       int day, month, year;
-      Time time;   // a component object
+      Time *time;   // a component object
 };
