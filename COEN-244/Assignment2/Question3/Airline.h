@@ -1,5 +1,5 @@
-// Name: Samuel Pineau
-// ID: 4031432
+// Name: Samuel Pineau, Ethan Fadlon
+// ID: 4031432, 40314189
 
 #pragma once
 #include "Passenger.h"
@@ -18,11 +18,12 @@ class Airline
         string name;
         string address;
         array <Flight*, 100> flights;
+        int flightnum = 0;
 
     public:
         Airline();
-        Airline(string name);
-        Airline(const Airline &);
+        Airline(string nm, string adr);
+        Airline(const Airline & air);
         string getName();
         string getAddress();
         ~Airline();
