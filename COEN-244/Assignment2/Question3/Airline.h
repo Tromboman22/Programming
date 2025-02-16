@@ -32,6 +32,7 @@ class Airline
         bool searchFlight(string x);                    //Return true if flight exists
         void displayFlights();
         void displayFlightsFromTo(string x, string y);  //Print by departure and destination
+        bool flightCount();
 };
 
 
