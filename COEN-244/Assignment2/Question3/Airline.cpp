@@ -11,17 +11,17 @@ using namespace std;
 
 
 
-Airline::Airline()                      //Default constructor
+Airline::Airline()                          //Default constructor
 {
     name = "";
     address = "";
 };
-Airline::Airline(string nm, string adr)           //Constructor
+Airline::Airline(string nm, string adr)     //Constructor
 {
     name = nm;
     address = adr;
 };
-Airline::Airline(const Airline & air)   //copy constructor
+Airline::Airline(const Airline & air)       //copy constructor
 {
     name = air.name;
     address = air.address;
@@ -34,10 +34,11 @@ string Airline::getAddress()
 {
     return address;
 };
-Airline::~Airline()                     //Destructor
+Airline::~Airline()                         //Destructor
 {
     for(int i = 0; i < flightnum; i++)
     {
+        flights[i]->~Flight();
         delete flights[i];
     }
 };
@@ -47,12 +48,13 @@ void Airline::addFlight(const Flight& cpy)
     {
         Flight *dup = new Flight(cpy);
         flights[flightnum] = dup;
+        flightnum++;
     }
 };
 void Airline::removeFlight(string x)
 {
     bool trigger = false;
-    for(int i = 0; i < flightnum; i++)  //remove a flight, decrease the number of flights and increment the flights array
+    for(int i = 0; i < flightnum; i++)      //remove a flight, decrease the number of flights and increment the flights array
     {
         if(flights[i]->getID() == x)
         {
@@ -60,16 +62,25 @@ void Airline::removeFlight(string x)
             flightnum -= 1;
             trigger = true;
         }
-        if(trigger)         //enabled if trigger became true
+        if(trigger)                         //enabled if trigger became true
         {
             flights[i] = flights[i+1];
             delete flights[i+1];
         }
     }
+    //Confirmation message
+    if(trigger == false)
+    {
+        cout << "Invalid flight id" << endl;
+    }
+    else
+    {
+        cout << "Successfully deleted flight" << endl;
+    }
 };
-bool Airline::searchFlight(string x)    //Return true if flight exists
+bool Airline::searchFlight(string x)        //Return true if flight exists
 {
-    bool trigger = false;    //keep track if flight gets found
+    bool trigger = false;                   //keep track if flight gets found
     for(int i = 0; i < flightnum; i++)
     {
         if(flights[i]->getID() == x)
@@ -80,7 +91,7 @@ bool Airline::searchFlight(string x)    //Return true if flight exists
     }
     return trigger;
 };                    
-void Airline::displayFlights()  //prints all the flights
+void Airline::displayFlights()              //prints all the flights
 {
     for(int i = 0; i < flightnum; i++)
     {
@@ -107,3 +118,9 @@ void Airline::displayFlightsFromTo(string depct, string arrct)
         cout << "No flights were found with a corresponding departure city and destination" << endl;
     }
 };  //Print by departure and destination
+bool Airline::flightCount() //Check if there are flights registered in the airline
+{
+    if(flightnum == 0)
+        return false;
+    return true;
+}
