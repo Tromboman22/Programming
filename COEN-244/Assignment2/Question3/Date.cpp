@@ -1,5 +1,5 @@
-// Name: Samuel Pineau 
-// ID: 4031432
+// Name: Samuel Pineau, Ethan Fadlon
+// ID: 4031432, 40314189
 
 
 #include <iostream>
@@ -10,7 +10,6 @@ using namespace std;
 Date::Date() {}; //default constructor
 
 Date::Date(int d, int m, int y, int hour, int min, int sec) {
-    cout << "Constructor Date(...) is called" << endl;
     day = d;
     month = m;
     year = y;
