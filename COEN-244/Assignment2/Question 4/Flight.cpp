@@ -23,11 +23,12 @@ Flight::Flight(string x, string dep, string arriv)
 
     int a, b, c, d, e, f;
 
-    cout << "Enter the date (numbers) of departure (day, month, year): ";
+    cout << "Enter the date (integers only) of departure (day, month, year): ";
     //catch exceptions
     while(!(cin >> a >> b >> c) || !checkDate(a, b, c))
     {
-        cout << "Invalid input!\ntip: integers only\n";
+        if (!cin)
+            cout << "Invalid input!\n";
         cin.clear();
         cin.ignore(1000, '\n');
     }
@@ -35,7 +36,8 @@ Flight::Flight(string x, string dep, string arriv)
 
     while (!(cin >> d >> e >> f))
     {
-		cout << "Invalid input!\ntip: integers only\n";
+        if(!cin)
+		    cout << "Invalid input!\n";
 		cin.clear();
 		cin.ignore(1000, '\n');
     }
@@ -46,7 +48,7 @@ Flight::Flight(string x, string dep, string arriv)
     //flush the buffer if user wrote more than six inputs
     cin.ignore(1000, '\n');
 
-    cout << "Enter the date (numbers) of arrival (day, month, year): ";
+    cout << "Enter the date (integers only) of arrival (day, month, year): ";
     //catch exceptions
     while (!(cin >> a >> b >> c) || !checkDate(a, b, c))
     {
@@ -195,6 +197,7 @@ Flight::~Flight()   //Destructor
     delete departureDate;
     for(int i = 0; i < seatCount; i++) //delete all the passengers from the flight
     {
+        seats[i]->~Passenger();
         delete seats[i];
     }
 };
