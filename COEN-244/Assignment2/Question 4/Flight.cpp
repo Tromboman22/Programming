@@ -226,6 +226,7 @@ void Flight::removePassenger(string z)
         {
             check = true;
             seatCount--;
+            cout << "Deleting " << seats[i]->getID() << endl;
             delete seats[i];
         }
         if(check)
@@ -233,6 +234,7 @@ void Flight::removePassenger(string z)
             seats[i] = seats[i + 1];
             delete seats[i + 1];
         }
+        cout << "Looping...\n";
     }
     if(!check)
     {
