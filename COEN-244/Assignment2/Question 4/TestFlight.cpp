@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
 	int IDNum = 0; //Used to create unique passenger ID's
-
+	int count = 0;
 	// simulate making a new flight object
 	cout << "New Flight! Enter a flight id: ";
 	string id, dep_ct, arr_ct;
@@ -93,20 +93,33 @@ int main()
 
 				Passenger p = Passenger(id, firstName, lastName, address, email);
 				IDNum++;
+				count++;
 
 				f.addPassenger(p);
 				break;
 			}
 			case 2: // Remove a passenger
 			{
+				if (count == 0)
+				{
+					cout << "Add a passenger before calling this function";
+					break;
+				}
+
 				cout << "Remove a passenger\n Enter the passenger id: ";
 				string id;
 				cin >> id;
 				f.removePassenger(id);
+				count--;
 				break;
 			}
 			case 3: // Search for a passenger
 			{
+				if (count == 0)
+				{
+					cout << "Add a passenger before calling this function";
+					break;
+				}
 				cout << "Search for a passenger\n Enter the passenger id: ";
 				string id;
 				cin >> id;
@@ -121,6 +134,11 @@ int main()
 			}
 			case 4: // Display passengers
 			{
+				if (count == 0)
+				{
+					cout << "Add a passenger before calling this function";
+					break;
+				}
 				cout << "Displaying passengers: " << endl;
 				f.displayPassenger();
 				break;
