@@ -81,6 +81,11 @@ Flight::Flight(string x, string dep, string arriv)
     if (a != day)
         duration += 24;
     cout << "Expected flight duration: " << duration  << " hours" << endl;
+    for (int i = 0; i < 100; i++)
+    {
+        Passenger *p = new Passenger();
+        seats[i] = p;
+    }
 };
 Flight::Flight(const Flight & fl)  //copy constructor
 {
@@ -191,11 +196,12 @@ bool Flight::checkDate(int x, int y, int z)
 };
 Flight::~Flight()   //Destructor
 {
+    cout << "Flight Destructor...\n";
     delete arrivalDate->time;
     delete arrivalDate;
     delete departureDate->time;
     delete departureDate;
-    for(int i = 0; i < seatCount; i++) //delete all the passengers from the flight
+    for(int i = 0; i < 100; i++) //delete all the passengers from the flight
     {
         seats[i]->~Passenger();
         delete seats[i];
@@ -211,6 +217,10 @@ void Flight::addPassenger(const Passenger& pass)  //Add a passenger
         Passenger* p = new Passenger(pass);
         seats[seatCount] = p;
         seatCount++;
+    }
+    else
+    {
+        cout << "Limit of passenger has been reached" << endl;
     }
 	
 };
