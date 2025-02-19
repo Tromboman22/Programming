@@ -18,6 +18,7 @@ int main()
 {
     string nm, adrs;
     
+    
     cout << "Choose a name for your airline: ";
     getline(cin, nm);
     cout << "What is the address: ";
