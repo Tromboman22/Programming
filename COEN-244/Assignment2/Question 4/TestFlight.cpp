@@ -69,6 +69,7 @@ int main()
 				cout << "Enter your last name: ";
 				cin >> lastName;
 				cin.clear();
+				cin.ignore(100, '\n');
 				cout << "Enter your address : ";
 				getline(cin, address);
 				cout << "Enter your email: ";
@@ -111,7 +112,7 @@ int main()
 				cin >> id;
 				if(f.searchPassenger(id))
 				{
-					cout << "Passenger is in flight\n";
+					cout << "Passenger is in flight " << f.getID() << endl;
 				}
 				else{
 					cout << "Passenger not found\n";
