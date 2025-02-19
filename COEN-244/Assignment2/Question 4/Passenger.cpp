@@ -49,8 +49,7 @@ string Passenger::getEmail()
 };
 void Passenger::Print()
 {
-    cout << "\n"
-        << "ID: " << id << endl
+    cout << "ID: " << id << endl
         << "Name: " << firstName << " " << lastName
         << "\nAddress: " << address
         << "\nEmail: " << email << endl;
