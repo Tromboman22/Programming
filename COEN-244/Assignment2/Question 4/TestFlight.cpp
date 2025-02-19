@@ -106,7 +106,7 @@ int main()
 					break;
 				}
 
-				cout << "Remove a passenger\n Enter the passenger id: ";
+				cout << "Remove a passenger\nEnter the passenger id: ";
 				string id;
 				cin >> id;
 				f.removePassenger(id);
