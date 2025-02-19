@@ -193,4 +193,65 @@ Flight::~Flight()   //Destructor
     delete arrivalDate;
     delete departureDate->time;
     delete departureDate;
+    for(int i = 0; i < seatCount; i++) //delete all the passengers from the flight
+    {
+        delete seats[i];
+    }
 };
+
+//Functions unique to Q4.
+void Flight::addPassenger(const Passenger& pass)  //Add a passenger 
+{
+	//add a passenger at seats[seatCount]
+    if(seatCount < 100)
+    {
+        Passenger* p = new Passenger(pass);
+        seats[seatCount] = p;
+        seatCount++;
+    }
+	
+};
+void Flight::removePassenger(string z) 
+{
+    //Delete the passenger at the right ID
+	//decrement the seat count 
+    //replace every seat
+    bool check = false;
+    for(int i = 0; i < seatCount; i++)
+    {       
+        if (seats[i]->getID() == z)
+        {
+            check = true;
+            seatCount--;
+            delete seats[i];
+        }
+        if(check)
+        {
+            seats[i] = seats[i + 1];
+            delete seats[i + 1];
+        }
+    }
+    if(!check)
+    {
+        cout << "Invalid id" << endl;
+    }
+}
+bool Flight::searchPassenger(string z) 
+{ 
+	for (int i = 0; i < 100; i++)
+	{
+		if (seats[i]->getID() == z )
+        {
+            return true;
+        }
+	}
+	return false;
+}
+void Flight::displayPassenger() 
+{ 
+	for (int i = 0; i < seatCount; i++)
+	{
+		seats[i]->Print();
+        cout << endl;
+	}
+}
