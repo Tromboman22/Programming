@@ -1,0 +1,9 @@
+Prompt 1:
+"Q. can you give me a list of all months and group trhem together based on the amount of days they have?
+A.Sure! Here's how the months are grouped based on the number of days they have:
+
+31 Days: January, March, May, July, August, October, December
+30 Days: April, June, September, November
+28 or 29 Days: February (28 days in common years, 29 days in leap years)
+
+Note: needed to find out which months have how many days for error correction."
