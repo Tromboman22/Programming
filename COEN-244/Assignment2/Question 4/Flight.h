@@ -4,6 +4,9 @@
 #pragma once
 #include "Time.h"
 #include "Date.h"
+#include "Passenger.h"
+#include <array>
+using namespace std;
 //#include "Passenger.h"
 
 
@@ -15,6 +18,8 @@ class Flight
         string id, departureCity, arrivalCity;
         Date* departureDate, *arrivalDate;
         int duration; //hours
+		array <Passenger*, 100> seats;
+        int seatCount = 0;
 
     public:
         Flight();
@@ -28,6 +33,12 @@ class Flight
         int getDuration();
         void printinfo();
         bool checkDate(int x, int y, int z);
+
+        //Functions unique to Q4.
+        void addPassenger(const Passenger&);
+        void removePassenger(string);
+        bool searchPassenger(string);
+        void displayPassenger();
         ~Flight();
 
 };
