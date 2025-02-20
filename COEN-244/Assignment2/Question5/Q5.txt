@@ -15,7 +15,7 @@ Currently, we add passengers on flights. We enter the passenger ID and they get 
 The flight then saves a copy of the passenger on its list of registered customers. 
 
 To add: 
-Each passenger will keep a copy of the flight whenever they register, as well as a const Date object from 
+Each passenger will keep a copy of the flight within their class whenever they register, as well as a Date object from 
 when they booked the flight. These objects will be stored in an array of pairs. This pair will contain a
 flight id (string) as well as a Date object that shows the time of booking.
 
@@ -25,7 +25,8 @@ example:
 class Passengers
 {
     private:
-        array<pair<string flight_id, Date booking_date>, 25> bookings; 
+        array<pair<string flight_id, Date booking_date>, 25> bookings;      //array that contains all flight id's and booking dates
+        int number_of_flights;                                              //keeps track of how many flights are in bookings[]
     
     public:
         void flight_booking(string flight_id, Date booking_date);
