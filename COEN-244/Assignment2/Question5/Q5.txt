@@ -1,0 +1,37 @@
+// Name: Samuel Pineau, Ethan Fadlon
+// ID: 4031432, 40314189
+
+Question: We want to improve Q4 by adding a booking date, which is the date a passenger makes 
+a booking. Passengers can make bookings for multiple flights.
+
+
+Assume the following:
+1. Each passenger has their own account with a unique ID
+2. Passengers with accounts can add themselves on planned flights
+3. There is a database with all the passengers as well as all the flights
+
+Current functionnality:
+Currently, we add passengers on flights. We enter the passenger ID and they get added onto the flight.
+The flight then saves a copy of the passenger on its list of registered customers. 
+
+To add: 
+Each passenger will keep a copy of the flight whenever they register, as well as a const Date object from 
+when they booked the flight. These objects will be stored in an array of pairs. This pair will contain a
+flight id (string) as well as a Date object that shows the time of booking.
+
+example:
+
+//add in the header file for Passegner.h
+class Passengers
+{
+    private:
+        array<pair<string flight_id, Date booking_date>, 25> bookings; 
+    
+    public:
+        void flight_booking(string flight_id, Date booking_date);
+}
+
+// Within the passenger object, an array of pairs will keep track of flights and booking times (25 max
+// flights is just a suggestion). Date booking_date should be the current date and time, while flight_id
+// should be the ID of the flight the passenger just registered himself for.
+
